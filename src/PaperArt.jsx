@@ -100,11 +100,18 @@ function FlameReavers() {
 
 const art = { gmorda: GMorda, kwordinaryvqa: KWordinaryVQA, flamereavers: FlameReavers };
 
-export function PaperThumb({ paper }) {
+// Thumbnail order of preference: real figure (`image`) > drawn method sketch (`art`) > designed placeholder.
+export function PaperThumb({ paper, icon }) {
   const Art = art[paper.art];
+  const kind = paper.image ? 'is-image' : Art ? 'is-art' : 'is-placeholder';
   return (
-    <div className="paper-thumb">
-      {paper.image ? <img src={paper.image} alt="" loading="lazy" /> : Art ? <Art /> : null}
+    <div className={`paper-thumb ${kind}`}>
+      {paper.image ? <img src={paper.image} alt="" loading="lazy" /> : Art ? <Art /> : (
+        <div className="thumb-placeholder" aria-hidden="true">
+          {icon && <span className="thumb-icon">{icon}</span>}
+          <span className="thumb-caption">{paper.badge || paper.organization}</span>
+        </div>
+      )}
       {paper.badge && <span className="paper-badge">{paper.badge}</span>}
     </div>
   );

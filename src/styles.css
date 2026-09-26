@@ -259,3 +259,43 @@ body{font-size:1rem;line-height:1.5}
 :root[data-theme="dark"] .work-row>div>p:first-of-type{color:var(--muted)}
 .education-row ul{list-style:disc;color:var(--list-text)}
 @media(max-width:650px){.work-row,.education-row{display:block}.work-row>time,.education-row>time{display:block;margin-bottom:.2rem}}
+
+/* 2026-09-26 (b) — wider identity column, date-right awards, project cards. */
+.nowrap{white-space:nowrap}
+.profile-layout{grid-template-columns:270px minmax(0,900px);gap:56px}
+@media(max-width:1100px){.profile-layout{grid-template-columns:240px minmax(0,1fr);gap:36px}}
+@media(max-width:850px){.profile-layout{grid-template-columns:220px minmax(0,1fr);gap:28px}}
+.portrait{width:180px;height:180px}
+.identity .location span{min-width:0}
+/* Awards: title left, MM/YYYY date right, no brackets. */
+.awards-list{list-style:disc}
+.awards-list>li{margin-bottom:1.05rem}
+.award-head{display:flex;justify-content:space-between;align-items:baseline;gap:1.25rem}
+.award-name{color:var(--text);font-weight:700}
+.award-name a{color:inherit;text-decoration:underline;text-decoration-color:var(--award-line);text-underline-offset:3px}
+.award-date{flex-shrink:0;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+#awards .award-date{color:var(--muted)}
+.featured-award .award-name,.featured-award .award-name a{color:var(--award-ink)}
+.awards-list .featured-award{padding:14px 18px;margin-left:-18px;border-radius:0 6px 6px 0}
+.award-rounds{list-style:none;margin:.7rem 0 .1rem;padding:0;display:grid;gap:.55rem}
+.award-rounds>li{position:relative;padding:.55rem .8rem .6rem 1rem;border-radius:6px;background:rgba(255,255,255,.55);border:1px solid var(--award-line)}
+:root[data-theme="dark"] .award-rounds>li{background:rgba(255,255,255,.03)}
+.award-rounds>li:before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--gold)}
+.round-stage{font-size:.8rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--award-ink)}
+.award-rounds .award-description{margin-top:.15rem!important}
+@media(max-width:650px){.awards-list .featured-award{margin-left:-12px;padding:12px}.award-head{gap:.75rem}}
+/* Projects reuse the publication card; the thumbnail is a real screenshot or figure. */
+.projects .paper-card{margin-bottom:1.9rem}
+.academic-content .projects .project-meta{font-size:.85rem;color:var(--muted);margin:.15rem 0 .35rem}
+.academic-content .projects .project-description{font-size:.95rem;line-height:1.6;margin:0;color:var(--list-text)}
+.research-project{display:block}
+/* Thumbnails without a real figure: soft tinted card instead of a bare drawing. */
+.paper-thumb.is-art{background:linear-gradient(135deg,#f3f7fa 0%,#fbf4f0 100%)}
+:root[data-theme="dark"] .paper-thumb.is-art{background:linear-gradient(135deg,#10232e 0%,#1a2230 100%)}
+.paper-thumb.is-image{background:#fff}
+.thumb-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 30% 25%,rgba(55,125,152,.16),transparent 55%),radial-gradient(circle at 80% 80%,rgba(180,27,27,.10),transparent 50%),var(--thumb-bg)}
+.thumb-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--thumb-card);color:var(--thumb-accent);box-shadow:0 6px 18px -10px rgba(0,0,0,.35)}
+.thumb-icon svg{width:28px;height:28px}
+.thumb-caption{font-size:.72rem;color:var(--muted);letter-spacing:.4px;text-align:center;padding:0 12px}
+.awards-list .award-rounds>li{margin:0;list-style:none}.award-rounds{margin-bottom:0}
+@media(max-width:650px){.identity .identity-description{clear:both;padding-top:12px}}
