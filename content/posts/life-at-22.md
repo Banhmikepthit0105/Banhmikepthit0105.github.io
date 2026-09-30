@@ -1,9 +1,8 @@
 ---
-title: Life at 22
-date: 
+title: "Làm việc khó mới "
+date: 2026-09-30
 category: Blog
 language: vi
 excerpt: Cuộc sống đại học.
-cover: 
 draft: false
 ---
