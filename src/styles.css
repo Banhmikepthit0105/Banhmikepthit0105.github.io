@@ -332,3 +332,7 @@ body{font-size:1rem;line-height:1.5}
 .article-list-entry.has-cover{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:28px}
 .article-list-cover{width:220px;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
 @media(max-width:650px){.article-list-entry.has-cover{grid-template-columns:1fr auto}.article-list-cover{grid-column:1/-1;width:100%}}
+/* 2026-09-30 (b): only the featured award title is highlighted, with the gold bar. */
+.featured-award .award-name:after{content:none}
+.featured-award .award-name{display:inline;padding:1px 8px 1px 10px;border-left:3px solid var(--gold);background:var(--award-bg);border-radius:0 4px 4px 0}
+.featured-award .award-name,.featured-award .award-name a{color:var(--award-ink)}
