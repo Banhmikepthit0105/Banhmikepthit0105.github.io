@@ -299,3 +299,36 @@ body{font-size:1rem;line-height:1.5}
 .thumb-caption{font-size:.72rem;color:var(--muted);letter-spacing:.4px;text-align:center;padding:0 12px}
 .awards-list .award-rounds>li{margin:0;list-style:none}.award-rounds{margin-bottom:0}
 @media(max-width:650px){.identity .identity-description{clear:both;padding-top:12px}}
+
+/* 2026-09-30 — quieter Awards: no filled boxes; issuer is a faint secondary line. */
+.awards-list .featured-award{background:none;border-left:0;padding:0;margin-left:0;list-style:disc}
+.featured-award .award-name,.featured-award .award-name a{color:var(--text)}
+.featured-award .award-name:after{content:'';display:inline-block;width:6px;height:6px;margin-left:8px;border-radius:50%;background:var(--gold);vertical-align:middle;transform:translateY(-2px)}
+.award-name a{text-decoration-color:var(--line)}
+.academic-content .award-issuer{font-size:.74rem;line-height:1.45;color:var(--muted);opacity:.78;margin:2px 0 3px;letter-spacing:.1px}
+.academic-content .award-description{color:var(--list-text);opacity:.85;font-size:.85rem}
+.award-rounds{gap:.35rem;margin:.45rem 0 0}
+.award-rounds>li{background:none!important;border:0;border-radius:0;padding:.15rem 0 .2rem .85rem}
+.award-rounds>li:before{top:4px;bottom:4px;width:2px;background:var(--line)}
+.round-stage{font-size:.72rem;letter-spacing:.5px;color:var(--muted);font-weight:700}
+/* CBCT thumbnail marks */
+.paper-thumb .pa-scan{fill:#4d5a63;stroke:var(--thumb-line);stroke-width:1.5}
+:root[data-theme="dark"] .paper-thumb .pa-scan{fill:#2c3a44}
+.paper-thumb .pa-tooth{fill:#f7f7f2;stroke:var(--thumb-accent);stroke-width:1.6}
+.paper-thumb .pa-chip.hot+text.on-accent{fill:#fff}
+/* Blog & Notes: Markdown / rich-text article bodies and optional cover photos. */
+.reading-body h2{font-size:1.5rem;margin:2.2rem 0 .8rem;line-height:1.3}
+.reading-body h3{font-size:1.2rem;margin:1.8rem 0 .6rem}
+.reading-body h4{font-size:1.05rem;margin:1.5rem 0 .5rem}
+.reading-body p{margin:0 0 1.2rem}
+.reading-body img{display:block;width:100%;height:auto;max-height:none;border-radius:6px;margin:1.6rem 0 .4rem}
+.reading-body figure{margin:1.8rem 0}.reading-body figcaption{text-align:center}
+.reading-body blockquote{margin:1.6rem 0;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--highlight);color:var(--muted);font-style:italic}
+.reading-body ul,.reading-body ol{padding-left:1.4rem;margin:0 0 1.2rem}.reading-body li{margin-bottom:.4rem}
+.reading-body a{color:var(--paper-link);text-decoration:underline;text-underline-offset:3px}
+.reading-body code{font-size:.9em;background:var(--surface);padding:1px 5px;border-radius:4px}
+.reading-body hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+.article-cover{margin:2rem 0 0}.article-cover img{border-radius:8px}
+.article-list-entry.has-cover{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:28px}
+.article-list-cover{width:220px;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+@media(max-width:650px){.article-list-entry.has-cover{grid-template-columns:1fr auto}.article-list-cover{grid-column:1/-1;width:100%}}

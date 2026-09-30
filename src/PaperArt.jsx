@@ -98,7 +98,36 @@ function FlameReavers() {
   );
 }
 
-const art = { gmorda: GMorda, kwordinaryvqa: KWordinaryVQA, flamereavers: FlameReavers };
+// Entity-Constrained CBCT Retrieval: CBCT volume -> entity-constrained retrieval -> completed dental record.
+function Cbct() {
+  const tooth = 'M-14 -14 C-14 -24 -4 -24 0 -18 C4 -24 14 -24 14 -14 C14 -4 10 4 8 16 C6 22 2 22 1 12 C0 6 -1 6 -2 12 C-3 22 -7 22 -9 16 C-11 4 -14 -4 -14 -14 Z';
+  return (
+    <svg viewBox="0 0 320 200" role="img" aria-label="A CBCT volume is matched to entities and retrieved to complete a dental record">
+      <g transform="translate(0 6)">
+        {[0, 1, 2, 3].map(i => (
+          <rect key={i} className={i === 3 ? 'pa-scan' : 'pa-card'} x={22 + i * 9} y={46 + i * 11} width="70" height="70" rx="6" />
+        ))}
+        <path className="pa-tooth" d={tooth} transform="translate(84 116) scale(1.25)" />
+        <Arrow x1={126} y1={100} x2={148} y2={100} />
+        <rect className="pa-chip hot" x="154" y="66" width="46" height="20" rx="10" />
+        <text className="pa-label on-accent" x="177" y="80" textAnchor="middle">36</text>
+        <rect className="pa-chip" x="154" y="92" width="46" height="20" rx="10" />
+        <text className="pa-label" x="177" y="106" textAnchor="middle">26</text>
+        <rect className="pa-chip" x="154" y="118" width="46" height="20" rx="10" />
+        <text className="pa-label" x="177" y="132" textAnchor="middle">11</text>
+        <Arrow x1={206} y1={100} x2={226} y2={100} />
+        <rect className="pa-card" x="232" y="46" width="70" height="108" rx="8" />
+        <rect className="pa-soft" x="242" y="58" width="50" height="7" rx="3.5" />
+        <rect className="pa-soft" x="242" y="74" width="38" height="7" rx="3.5" />
+        <rect className="pa-soft" x="242" y="90" width="44" height="7" rx="3.5" />
+        <rect className="pa-accent" x="242" y="108" width="50" height="10" rx="5" />
+        <rect className="pa-soft" x="242" y="128" width="32" height="7" rx="3.5" />
+      </g>
+    </svg>
+  );
+}
+
+const art = { gmorda: GMorda, kwordinaryvqa: KWordinaryVQA, flamereavers: FlameReavers, cbct: Cbct };
 
 // Thumbnail order of preference: real figure (`image`) > drawn method sketch (`art`) > designed placeholder.
 export function PaperThumb({ paper, icon }) {

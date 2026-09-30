@@ -1,0 +1,54 @@
+# Pages CMS (https://app.pagescms.org): sign in with GitHub, open this repository,
+# and edit Blog & Notes through a web editor. Each save is a commit to `main`,
+# which rebuilds the site through .github/workflows/deploy-pages.yml.
+media:
+  input: public/assets/blog
+  output: /assets/blog
+content:
+  - name: posts
+    label: Blog & Notes
+    type: collection
+    path: content/posts
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, category, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: Category
+        type: select
+        default: Blog
+        options:
+          values: [Blog, Notes]
+      - name: language
+        label: Language
+        type: select
+        default: vi
+        options:
+          values: [vi, en]
+      - name: excerpt
+        label: Short summary
+        type: text
+      - name: cover
+        label: Cover photo
+        type: image
+      - name: draft
+        label: Draft (hidden on the site)
+        type: boolean
+        default: false
+      - name: body
+        label: Article
+        type: rich-text

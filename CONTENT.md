@@ -6,7 +6,6 @@ Edit `src/content.js` to add confirmed content. The profile and blog share the t
 - `profile.publications`: topic, title, url, authors (text), venue
 - `profile.experience`: period, role, organization, description
 - `profile.awards`: year, title
-- `posts`: slug (unique), title, category (`Blog` or `Notes`), excerpt, body (array of paragraphs), optional date, image and alt.
 
 Store your photographs under `public/assets/` and reference `/assets/filename.jpg`. There are no sample entries or environment-specific content. The first article is Life at 22; its title and topic are confirmed, while the owner has not yet supplied the article body. There is no CMS or upload backend yet; content is managed in this file.
 
@@ -19,3 +18,15 @@ The earlier profile UI is preserved under `reference/previous-profile/`.
 
 ## Paper thumbnails
 Each publication accepts `badge` (short venue, e.g. `KES 2026`), `art` (`gmorda`, `kwordinaryvqa`, `flamereavers` — drawings in `src/PaperArt.jsx`), optional `image` (`/assets/papers/<file>.png`, overrides `art`; 16:10 works best), and optional `links` (`[{ label, url }]`). Projects accept `icon` (`database`, `food`, `learning`, `scroll`).
+
+## Blog & Notes: edit with a web UI (Pages CMS)
+
+Posts are Markdown files in `content/posts/` (file name = link slug). The easiest way to write them is **Pages CMS**, a free web editor that works directly on this GitHub repository:
+
+1. Open https://app.pagescms.org and sign in with GitHub (account `Banhmikepthit0105`).
+2. Choose the repository `Banhmikepthit0105.github.io`, branch `main`.
+3. Open **Blog & Notes**. Create or edit a post: title, date, category (Blog/Notes), language, short summary, cover photo, and the article in a rich-text editor. Photos you upload are stored in `public/assets/blog/`.
+4. Save. Pages CMS commits to `main`, and GitHub Actions republishes the site in about a minute.
+
+Tick **Draft** to keep a post hidden on the site. The editor's configuration is `.pages.yml`.
+Remember to `git pull` in your local folder before editing files on your computer, so it picks up posts written in the web editor.
