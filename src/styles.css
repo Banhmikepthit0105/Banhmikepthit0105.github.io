@@ -336,3 +336,12 @@ body{font-size:1rem;line-height:1.5}
 .featured-award .award-name:after{content:none}
 .featured-award .award-name{display:inline;padding:1px 8px 1px 10px;border-left:3px solid var(--gold);background:var(--award-bg);border-radius:0 4px 4px 0}
 .featured-award .award-name,.featured-award .award-name a{color:var(--award-ink)}
+
+/* Journal opening: editorial context without placeholder or draft language. */
+.journal-intro{gap:70px}
+.journal-hook{max-width:560px;font-size:1.05rem!important;line-height:1.7!important;color:var(--text)!important}
+.journal-intro-note{align-self:flex-end;display:flex;flex-direction:column;gap:9px;max-width:230px;padding:0 0 6px 22px;border-left:2px solid var(--highlight)}
+.journal-intro-note span{font-size:.63rem;letter-spacing:1.7px;color:var(--muted)}
+.journal-intro-note strong{font-size:.95rem;font-weight:600;color:var(--text)}
+.journal-intro-note small{font-size:.78rem;line-height:1.55;color:var(--muted)}
+@media(max-width:650px){.journal-intro{display:block}.journal-hook{font-size:1rem!important}.journal-intro-note{margin-top:28px;padding:14px 0 0;border-left:0;border-top:2px solid var(--highlight);max-width:none}}

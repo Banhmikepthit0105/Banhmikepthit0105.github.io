@@ -3,10 +3,8 @@ export const profile = {
   news: [
     { date: '2026', text: 'Entity-Constrained CBCT Retrieval has been accepted at MICCAIW 2026 (ODIN Workshop).' },
     { date: '2026', text: 'G-MORDA has been accepted at KES 2026.' },
-    { date: '2026', text: 'Received the Odon Vallet Scholarship.' },
+    { date: '2026', text: 'Received the Odon Vallet Scholarship 2026.', highlight: true },
     { date: '2026', text: 'Recognized for an Outstanding Thesis with a score of 10/10.' },
-    { date: '2025', text: 'KWordinaryVQA appeared at PACLIC 2025.' },
-    { date: '2025', text: 'Won first place in the Retrieval Task at ALQAC 2025.' },
   ],
   // Title links open on hover/click; `image` is a real figure, `art` is the drawn fallback in PaperArt.jsx.
   publications: [
@@ -20,8 +18,8 @@ export const profile = {
     { period: '05/2025 - 05/2026', role: 'Undergraduate Student Researcher', organization: 'University of Science, VNU-HCM', arrangement: 'Part-time', description: 'Advisor: Dr. Thanh Le (HCMUS).' },
   ],
   education: [
-    { period: '10/2022 - 09/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA: 9.06/10 (3.81/4.0).', 'Dean’s List for academic year 2024-2025: top 5% in academic performance, highest GPA among recipients.', 'Top-20 GPA Academic Merit Scholarship for Semesters 7 & 8.'] },
-    { period: '2019 - 2022', institution: 'Nguyen Quang Dieu High School for the Gifted', degree: 'High School Diploma · Chemistry', details: [] },
+    { period: '10/2022 - 10/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA: 9.06/10 (3.81/4.0).', 'Top 5% of the Information Technology CLC cohort by GPA; highest GPA in the cohort.', 'Dean’s List for Academic Year 2024-2025.', 'Odon Vallet Scholarship 2026.'] },
+    { period: '2019 - 2022', institution: 'Nguyen Quang Dieu High School for the Gifted', degree: 'High School Diploma · Chemistry', details: ['Traditional Flag for Academic Excellence - sole recipient.', 'Third Prize, Vietnam National Chemistry Olympiad.'] },
   ],
   // Project titles link to their public repositories.
   projects: [
@@ -39,18 +37,18 @@ export const profile = {
     { date: '2026', title: 'Outstanding Thesis (10/10)', description: 'Recognized for an outstanding thesis, awarded the maximum score of 10/10.' },
     { title: 'Odon Vallet Scholarship', featured: true, issuer: 'Rencontres du Vietnam', url: 'https://www.fondationvallet.org/bourses/vietnam/', description: 'Awarded twice, at two stages of study.',
       rounds: [
-        { date: '2026', stage: 'University', description: 'Awarded as a student of the University of Science, VNU-HCM, for academic and research excellence.' },
-        { date: '08/2022', stage: 'High school', description: 'Awarded as a student of Nguyen Quang Dieu High School for the Gifted, for outstanding academic achievement.' },
+        { date: '2026', stage: 'University', description: 'Awarded to top-performing students. Approximately 30 students across HCMUS received it, including 5-6 from the Faculty of Information Technology; I was the only recipient from the K22 cohort.' },
+        { date: '08/2022', stage: 'High school', description: 'Awarded to one of 4-5 students from Nguyen Quang Dieu High School for the Gifted, selected for outstanding academic performance in the natural sciences.' },
       ] },
-    { date: '01/2026', title: 'Dean’s List, Academic Year 2024-2025', featured: true, issuer: 'Faculty of Information Technology, University of Science, VNU-HCM', description: 'Ranked first by GPA among recipients; recognizes the top 5% in academic performance.' },
+    { date: '01/2026', title: 'Dean’s List, Academic Year 2024-2025', featured: true, issuer: 'Faculty of Information Technology, University of Science, VNU-HCM', description: 'Highest GPA among recipients in the Faculty of Information Technology; recognizes the top 5% in academic performance.' },
     { date: '07/2025', title: 'First Place in the Retrieval Task, ALQAC 2025', issuer: 'JAIST · Program committee: JAIST, NII, VNU-HCMUS and VNU-UET', description: 'Winning legal-document retrieval system at the Automated Legal Question Answering Competition.' },
     { date: '05/2025', title: 'Academic Excellence Scholarship (Winter 2024 & Spring 2025)', issuer: 'University of Science, VNU-HCM', description: 'Awarded for a top-20 GPA in the academic year.' },
-    { date: '05/2022', title: 'Third Prize, Vietnam National Chemistry Olympiad', issuer: 'Vietnam Ministry of Education and Training', description: 'National-level recognition in Chemistry for high-school students.' },
-    { date: '04/2022', title: 'Traditional Flag for Academic Excellence', issuer: 'Nguyen Quang Dieu High School for the Gifted', description: 'Recognizes outstanding academic performance and dedication.' },
-    { date: '01/2022', title: 'First Prize, Provincial Excellent Student Contest in Chemistry', issuer: 'Dong Thap Department of Education and Training', description: 'Valedictorian in the provincial Chemistry competition.' },
-    { date: '08/2021', title: 'Silver Medal, Southern Chemistry Olympiad', issuer: 'Organizing Board of the Southern Chemistry Olympiad', description: 'Recognizes achievement in the regional Chemistry Olympiad.' },
-    { date: '04/2021', title: 'Silver Medal, 30/4 Traditional Olympiad in Chemistry', issuer: 'HCMC Department of Education and Training', description: 'Chemistry distinction at the inter-school academic competition for high-school students.' },
-    { date: '01/2021', title: 'Third Prize, Provincial Excellent Student Contest in Chemistry', issuer: 'Dong Thap Department of Education and Training', description: 'Provincial-level recognition for achievement in Chemistry.' },
+    { date: '05/2022', title: 'Third Prize, Vietnam National Olympiad', issuer: 'Vietnam Ministry of Education and Training', description: 'National-level recognition in Chemistry for high-school students.' },
+    { date: '04/2022', title: 'Traditional Flag for Academic Excellence', issuer: 'Nguyen Quang Dieu High School for the Gifted', description: 'Traditional Flag awarded to the sole recipient for outstanding academic performance and dedication.' },
+    { date: '01/2022', title: 'First Prize, Provincial Excellent Student Contest', issuer: 'Dong Thap Department of Education and Training', description: 'Valedictorian in the provincial Chemistry competition.' },
+    { date: '08/2021', title: 'Silver Medal, Southern Olympiad', issuer: 'Organizing Board of the Southern Chemistry Olympiad', description: 'Recognizes achievement in the regional Chemistry Olympiad.' },
+    { date: '04/2021', title: 'Silver Medal, 30/4 Traditional Olympiad', issuer: 'HCMC Department of Education and Training', description: 'Chemistry distinction at the inter-school academic competition for high-school students.' },
+    { date: '01/2021', title: 'Third Prize, Provincial Excellent Student Contest', issuer: 'Dong Thap Department of Education and Training', description: 'Provincial-level recognition for achievement in Chemistry.' },
   ],
 };
 // Blog & Notes posts live in /content/posts/*.md (see src/posts.js and .pages.yml).
