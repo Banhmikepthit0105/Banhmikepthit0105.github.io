@@ -34,11 +34,11 @@ export const profile = {
   ],
   // Dates use MM/YYYY and appear at the right of each award.
   awards: [
-    { date: '2026', title: 'Outstanding Thesis (10/10)', description: 'Recognized for an outstanding thesis, awarded the maximum score of 10/10.' },
+    { date: '2026', title: 'Outstanding Thesis (10/10)', description: 'Outstanding thesis performance with a maximum score of 10/10.' },
     { title: 'Odon Vallet Scholarship', featured: true, issuer: 'Rencontres du Vietnam', url: 'https://www.fondationvallet.org/bourses/vietnam/', description: 'Awarded twice, at two stages of study.',
       rounds: [
-        { date: '2026', stage: 'University', description: 'Awarded to top-performing students. Approximately 30 students across HCMUS received it, including 5-6 from the Faculty of Information Technology; I was the only recipient from the K22 cohort.' },
-        { date: '08/2022', stage: 'High school', description: 'Awarded to one of 4-5 students from Nguyen Quang Dieu High School for the Gifted, selected for outstanding academic performance in the natural sciences.' },
+        { date: '2026', stage: 'University', description: 'Top-performing student in Information Technology; one of approximately 30 HCMUS recipients and the sole K22 awardee in the faculty.' },
+        { date: '08/2022', stage: 'High school', description: 'One of 4-5 recipients, selected for outstanding achievement in the natural sciences.' },
       ] },
     { date: '01/2026', title: 'Dean’s List, Academic Year 2024-2025', featured: true, issuer: 'Faculty of Information Technology, University of Science, VNU-HCM', description: 'Highest GPA among recipients in the Faculty of Information Technology; recognizes the top 5% in academic performance.' },
     { date: '07/2025', title: 'First Place in the Retrieval Task, ALQAC 2025', issuer: 'JAIST · Program committee: JAIST, NII, VNU-HCMUS and VNU-UET', description: 'Winning legal-document retrieval system at the Automated Legal Question Answering Competition.' },
