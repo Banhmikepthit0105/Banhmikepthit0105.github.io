@@ -18,7 +18,7 @@ export const profile = {
     { period: '05/2025 - 05/2026', role: 'Undergraduate Student Researcher', organization: 'University of Science, VNU-HCM', arrangement: 'Part-time', description: 'Advisor: Dr. Thanh Le (HCMUS).' },
   ],
   education: [
-    { period: '10/2022 - 10/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA: 9.06/10 (3.81/4.0).', 'Top 5% of the Information Technology CLC cohort by GPA; highest GPA in the cohort.', 'Dean’s List for Academic Year 2024-2025.', 'Odon Vallet Scholarship 2026.'] },
+    { period: '10/2022 - 10/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA: 9.06/10 (3.81/4.0).', 'Top 5% of the Information Technology CLC cohort by GPA.', 'Dean’s List for Academic Year 2024-2025; highest GPA among recipients.', 'Odon Vallet Scholarship 2026.'] },
     { period: '2019 - 2022', institution: 'Nguyen Quang Dieu High School for the Gifted', degree: 'High School Diploma · Chemistry', details: ['Traditional Flag for Academic Excellence - sole recipient.', 'Third Prize, Vietnam National Chemistry Olympiad.'] },
   ],
   // Project titles link to their public repositories.
