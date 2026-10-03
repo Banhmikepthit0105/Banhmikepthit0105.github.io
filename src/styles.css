@@ -367,3 +367,6 @@ body{font-size:1rem;line-height:1.5}
 :lang(zh-Hans) .reading-body,:lang(zh-Hans) .article-list-entry h2,:lang(zh-Hans) .article-header h1{font-family:var(--font),"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif}
 @media(max-width:650px){.reading-toolbar{margin-bottom:36px}.lang-switch{grid-template-columns:repeat(3,46px)}.lang-switch-pill{width:46px;transform:translateX(calc(var(--lang-index) * 46px))}}
 @media(prefers-reduced-motion:reduce){.lang-switch-pill{transition:none}.lang-fade{animation:none}}
+
+/* Short context line under an institution name. */
+.academic-content .education-row .education-note{font-size:.8rem;line-height:1.5;color:var(--muted);font-style:italic;margin:-.35rem 0 .45rem}
