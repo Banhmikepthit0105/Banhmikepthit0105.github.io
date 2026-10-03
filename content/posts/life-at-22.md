@@ -2,6 +2,7 @@
 title: Làm việc khó mới thú vị
 date: 2026-09-30
 category: Blog
+key: life-at-22
 language: vi
 excerpt: trích Phạm Nhật Vượng
 draft: false

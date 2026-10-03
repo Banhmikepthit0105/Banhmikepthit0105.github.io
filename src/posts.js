@@ -48,21 +48,37 @@ export function renderMarkdown(md) {
 // The rich-text editor may save HTML; the owner is the only author, so HTML bodies are used as written.
 const toHtml = body => (/^\s*</.test(body) ? body : renderMarkdown(body));
 
+export const LANGS = ['vi', 'en', 'zh'];
+const normLang = l => (l === 'zh-CN' || l === 'zh-Hans' || l === 'cn' ? 'zh' : LANGS.includes(l) ? l : 'vi');
+
 export const posts = Object.entries(files)
   .map(([path, raw]) => {
     const { data, body } = parseFrontMatter(raw);
-    const slug = path.split('/').pop().replace(/\.md$/, '');
+    const file = path.split('/').pop().replace(/\.md$/, '');
+    const language = normLang(data.language || (file.match(/\.(vi|en|zh)$/) || [])[1] || 'vi');
+    // All language versions of one post share `key` (Post ID); default is the file name without a language suffix.
+    const key = (data.key || file.replace(/\.(vi|en|zh)$/, '')).trim();
     return {
-      slug,
-      title: data.title || slug,
+      key, slug: key, language,
+      title: data.title || key,
       date: data.date || '',
       category: data.category || 'Blog',
-      language: data.language || 'vi',
       excerpt: data.excerpt || '',
       cover: data.cover || '',
       draft: data.draft === true,
       html: body.trim() ? toHtml(body) : '',
     };
   })
-  .filter(post => !post.draft)
-  .sort((a, b) => (b.date || '').localeCompare(a.date || '') || a.title.localeCompare(b.title));
+  .filter(post => !post.draft);
+
+// One entry per post, holding each available language version.
+export const postGroups = Object.values(posts.reduce((acc, p) => {
+  (acc[p.key] ||= { key: p.key, versions: {} }).versions[p.language] = p;
+  return acc;
+}, {})).map(g => {
+  const any = g.versions.vi || g.versions.en || g.versions.zh;
+  return { ...g, date: Object.values(g.versions).map(v => v.date).sort().pop() || '', cover: any.cover };
+}).sort((a, b) => (b.date || '').localeCompare(a.date || '') || a.key.localeCompare(b.key));
+
+// Pick the requested language, otherwise fall back in a fixed order.
+export const pickVersion = (group, lang) => group.versions[lang] || group.versions.vi || group.versions.en || group.versions.zh;

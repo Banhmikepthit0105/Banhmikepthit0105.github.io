@@ -2,12 +2,12 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowUpRight, GithubLogo, MapPin, ArrowLeft, ArrowRight, List, X, Trophy, LinkedinLogo, EnvelopeSimple, Bank, GraduationCap, Database, ForkKnife, ChalkboardTeacher, Scroll, House, GameController } from '@phosphor-icons/react';
 import { PaperThumb } from './PaperArt';
 import { profile } from './content';
-import { posts } from './posts';
+import { postGroups, pickVersion, LANGS } from './posts';
 import { DynamicBackground } from './Motion';
 
 const sections = [['About', 'about'], ['News', 'news'], ['Publications', 'publications'], ['Work Experience', 'experience'], ['Awards', 'awards']];
 const journalUrl = '/?view=journal';
-const entries = posts;
+const entries = postGroups;
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 
 function ThemePicker({theme, setTheme}) {
@@ -48,12 +48,55 @@ function Profile() {
   </div>;
 }
 const formatDate = d => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? `${m[3]}/${m[2]}/${m[1]}` : d; };
+const LANG_LABEL = { vi: 'VI', en: 'EN', zh: '中文' };
+const LANG_NAME = { vi: 'Tiếng Việt', en: 'English', zh: '简体中文' };
+const HTML_LANG = { vi: 'vi', en: 'en', zh: 'zh-Hans' };
+const UI = {
+  vi: { kicker: 'THOMAS NG · NHẬT KÝ CÁ NHÂN', hook: 'Một góc nhỏ để ghi lại những điều tôi học được, đang suy nghĩ, và muốn nhớ lâu hơn.', noteTitle: 'Cuộc sống · học tập · làm ra thứ gì đó', noteSmall: 'Những câu chuyện bên cạnh công việc nghiên cứu.', empty: 'Chưa có bài viết nào.', onlyIn: 'Chỉ có bản', missing: 'Bài viết này chưa có bản tiếng Việt.', notFound: 'Không tìm thấy bài viết.', notFoundBody: 'Bài viết này không tồn tại.', switcher: 'Chọn ngôn ngữ', unavailable: 'Chưa có bản dịch' },
+  en: { kicker: 'THOMAS NG · PERSONAL JOURNAL', hook: 'A small corner for what I learn, what I am thinking about, and what I want to remember.', noteTitle: 'Life · learning · making', noteSmall: 'Stories from beside the research work.', empty: 'No posts yet.', onlyIn: 'Only in', missing: 'This post is not available in English yet.', notFound: 'Post not found.', notFoundBody: 'This post does not exist.', switcher: 'Choose language', unavailable: 'Not translated yet' },
+  zh: { kicker: 'THOMAS NG · 个人随笔', hook: '一个小角落，记录我学到的、正在思考的，以及想要长久记住的事情。', noteTitle: '生活 · 学习 · 创造', noteSmall: '研究工作之外的故事。', empty: '暂无文章。', onlyIn: '仅有', missing: '这篇文章暂无简体中文版本。', notFound: '未找到文章。', notFoundBody: '这篇文章不存在。', switcher: '选择语言', unavailable: '暂无翻译' },
+};
+const readLang = () => {
+  const q = new URLSearchParams(location.search).get('lang');
+  if (LANGS.includes(q)) return q;
+  try { const saved = localStorage.getItem('thomas-journal-lang'); if (LANGS.includes(saved)) return saved; } catch {}
+  return 'vi';
+};
+function LanguageSwitch({ lang, setLang, available = LANGS, t }) {
+  return <div className="lang-switch" role="radiogroup" aria-label={t.switcher} style={{'--lang-index': LANGS.indexOf(lang)}}>
+    <span className="lang-switch-pill" aria-hidden="true"/>
+    {LANGS.map(l => { const ok = available.includes(l); return <button key={l} type="button" role="radio" aria-checked={lang === l} lang={HTML_LANG[l]} disabled={!ok} title={ok ? LANG_NAME[l] : `${LANG_NAME[l]} · ${t.unavailable}`} onClick={() => setLang(l)}>{LANG_LABEL[l]}</button>; })}
+  </div>;
+}
 function Journal() {
-  const slug = new URLSearchParams(location.search).get('post');
-  const post = entries.find(p => p.slug === slug);
+  const params = new URLSearchParams(location.search);
+  const key = params.get('post');
+  const [lang, setLangState] = useState(readLang);
+  const setLang = l => {
+    setLangState(l);
+    try { localStorage.setItem('thomas-journal-lang', l); } catch {}
+    const url = new URL(location.href); url.searchParams.set('lang', l); history.replaceState(null, '', url);
+  };
+  const t = UI[lang];
+  const group = key ? entries.find(g => g.key === key) : null;
+  const post = group ? group.versions[lang] : null;
+  useEffect(() => { document.documentElement.lang = HTML_LANG[lang]; }, [lang]);
   useEffect(() => { document.title = `${post ? post.title : 'Blog & Notes'} · Thomas NG`; }, [post]);
-  if (slug) return <article className="reading" lang={post?.language || 'vi'}><a href={journalUrl} className="back"><ArrowLeft size={18}/> Blog & Notes</a>{post ? <><header className="article-header"><p className="eyebrow">{post.category}</p><h1>{post.title}</h1>{post.excerpt && <p className="standfirst">{post.excerpt}</p>}<p className="article-byline">Nguyen Thanh Thai <span>Thomas NG</span>{post.date && <time dateTime={post.date}>{formatDate(post.date)}</time>}</p></header>{post.cover && <figure className="article-cover"><img src={post.cover} alt=""/></figure>}{post.html && <div className="reading-body" dangerouslySetInnerHTML={{__html: post.html}}/>}</> : <><h1>Không tìm thấy bài viết.</h1><p>Bài viết này không tồn tại.</p></>}</article>;
-  return <div className="journal-page" lang="vi"><div className="journal-intro"><div><p className="eyebrow">THOMAS NG · PERSONAL JOURNAL</p><h1>Blog <i>&</i> Notes</h1><p className="journal-hook">Một góc nhỏ để ghi lại những điều tôi học được, đang suy nghĩ, và muốn nhớ lâu hơn.</p></div><div className="journal-intro-note" aria-label="Journal themes"><span>FIELD NOTES</span><strong>Life · learning · making</strong><small>Những câu chuyện bên cạnh công việc nghiên cứu.</small></div></div><div className="article-list">{entries.map(p=><a className={`article-list-entry${p.cover ? ' has-cover' : ''}`} href={`${journalUrl}&post=${p.slug}`} key={p.slug}>{p.cover && <img className="article-list-cover" src={p.cover} alt="" loading="lazy"/>}<div><p className="eyebrow">{p.category}{p.date && <> · {formatDate(p.date)}</>}</p><h2>{p.title}</h2>{p.excerpt && <p>{p.excerpt}</p>}</div><ArrowRight size={26} aria-hidden="true"/></a>)}</div></div>;
+  if (key) {
+    const available = group ? LANGS.filter(l => group.versions[l]) : LANGS;
+    return <article className="reading" lang={HTML_LANG[lang]}>
+      <div className="reading-toolbar"><a href={`${journalUrl}&lang=${lang}`} className="back"><ArrowLeft size={18}/> Blog & Notes</a>{group && <LanguageSwitch lang={lang} setLang={setLang} available={available} t={t}/>}</div>
+      {!group ? <><h1>{t.notFound}</h1><p>{t.notFoundBody}</p></> : !post ? <div className="lang-missing"><p>{t.missing}</p><div className="lang-missing-options">{available.map(l => <button key={l} type="button" onClick={() => setLang(l)} lang={HTML_LANG[l]}>{LANG_NAME[l]}</button>)}</div></div> : <div className="lang-fade" key={lang}>
+        <header className="article-header"><p className="eyebrow">{post.category}</p><h1>{post.title}</h1>{post.excerpt && <p className="standfirst">{post.excerpt}</p>}<p className="article-byline">Nguyen Thanh Thai <span>Thomas NG</span>{post.date && <time dateTime={post.date}>{formatDate(post.date)}</time>}</p></header>
+        {post.cover && <figure className="article-cover"><img src={post.cover} alt=""/></figure>}
+        {post.html && <div className="reading-body" dangerouslySetInnerHTML={{__html: post.html}}/>}
+      </div>}
+    </article>;
+  }
+  return <div className="journal-page" lang={HTML_LANG[lang]}>
+    <div className="journal-intro"><div><div className="journal-kicker-row"><p className="eyebrow">{t.kicker}</p><LanguageSwitch lang={lang} setLang={setLang} t={t}/></div><h1>Blog <i>&</i> Notes</h1><p className="journal-hook">{t.hook}</p></div><div className="journal-intro-note" aria-label="Journal themes"><span>FIELD NOTES</span><strong>{t.noteTitle}</strong><small>{t.noteSmall}</small></div></div>
+    <div className="article-list lang-fade" key={lang}>{entries.length === 0 && <p className="empty">{t.empty}</p>}{entries.map(g => { const p = pickVersion(g, lang); const fallback = p.language !== lang; return <a className={`article-list-entry${p.cover ? ' has-cover' : ''}`} href={`${journalUrl}&post=${encodeURIComponent(g.key)}&lang=${p.language}`} key={g.key} lang={HTML_LANG[p.language]}>{p.cover && <img className="article-list-cover" src={p.cover} alt="" loading="lazy"/>}<div><p className="eyebrow">{p.category}{p.date && <> · {formatDate(p.date)}</>}{fallback && <span className="lang-only">{t.onlyIn} {LANG_NAME[p.language]}</span>}</p><h2>{p.title}</h2>{p.excerpt && <p>{p.excerpt}</p>}</div><ArrowRight size={26} aria-hidden="true"/></a>; })}</div>
+  </div>;
 }
 export function App() {
   const journal = new URLSearchParams(location.search).get('view') === 'journal';

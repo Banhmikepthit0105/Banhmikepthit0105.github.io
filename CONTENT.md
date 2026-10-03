@@ -30,3 +30,6 @@ Posts are Markdown files in `content/posts/` (file name = link slug). The easies
 
 Tick **Draft** to keep a post hidden on the site. The editor's configuration is `.pages.yml`.
 Remember to `git pull` in your local folder before editing files on your computer, so it picks up posts written in the web editor.
+
+### Language versions (VI · EN · 中文)
+Each language is its own post file. Give every version the same **Post ID** (`key`, e.g. `life-at-22`) and pick its **Language** (Tiếng Việt / English / 简体中文). The Blog page shows one language at a time with the VI · EN · 中文 switch; a post that has no version in the chosen language shows its available version with a small "Only in …" label.

@@ -9,9 +9,9 @@ content:
     label: Blog & Notes
     type: collection
     path: content/posts
-    filename: "{primary}.md"
+    filename: "{fields.key}.{fields.language}.md"
     view:
-      fields: [title, date, category, draft]
+      fields: [title, key, language, date, draft]
       primary: title
       sort: [date, title]
       default:
@@ -33,12 +33,20 @@ content:
         default: Blog
         options:
           values: [Blog, Notes]
+      - name: key
+        label: Post ID (same for every language version, e.g. life-at-22)
+        type: string
+        required: true
+        pattern: ^[a-z0-9-]+$
       - name: language
         label: Language
         type: select
         default: vi
         options:
-          values: [vi, en]
+          values:
+            - { value: vi, label: Tiếng Việt }
+            - { value: en, label: English }
+            - { value: zh, label: 简体中文 }
       - name: excerpt
         label: Short summary
         type: text

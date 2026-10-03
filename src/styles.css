@@ -345,3 +345,25 @@ body{font-size:1rem;line-height:1.5}
 .journal-intro-note strong{font-size:.95rem;font-weight:600;color:var(--text)}
 .journal-intro-note small{font-size:.78rem;line-height:1.55;color:var(--muted)}
 @media(max-width:650px){.journal-intro{display:block}.journal-hook{font-size:1rem!important}.journal-intro-note{margin-top:28px;padding:14px 0 0;border-left:0;border-top:2px solid var(--highlight);max-width:none}}
+
+/* Blog & Notes language switch: one language at a time (VI · EN · 中文). */
+.journal-kicker-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.journal-kicker-row .eyebrow{margin:0}
+.lang-switch{--lang-index:0;position:relative;display:inline-grid;grid-template-columns:repeat(3,52px);padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface);isolation:isolate}
+.lang-switch-pill{position:absolute;top:3px;bottom:3px;left:3px;width:52px;border-radius:999px;background:var(--canvas);box-shadow:0 1px 3px rgba(0,0,0,.14),0 0 0 1px var(--line);transform:translateX(calc(var(--lang-index) * 52px));transition:transform 320ms cubic-bezier(.22,1,.36,1);z-index:-1}
+.lang-switch button{border:0;background:none;padding:5px 0;font-size:.78rem;font-weight:600;letter-spacing:.3px;color:var(--muted);border-radius:999px;transition:color 200ms ease}
+.lang-switch button[aria-checked="true"]{color:var(--text)}
+.lang-switch button:not(:disabled):hover{color:var(--highlight)}
+.lang-switch button:disabled{opacity:.35;cursor:not-allowed}
+.reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:60px}
+.reading-toolbar .back{margin-bottom:0}
+.lang-only{margin-left:10px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);font-size:.68rem;letter-spacing:.2px;text-transform:none;color:var(--muted);font-weight:500}
+.lang-missing{padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;color:var(--muted)}
+.lang-missing-options{display:flex;gap:10px;justify-content:center;margin-top:14px}
+.lang-missing-options button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;font-size:.85rem;color:var(--text)}
+.lang-missing-options button:hover{border-color:var(--highlight)}
+.lang-fade{animation:langFade 260ms ease both}
+@keyframes langFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+:lang(zh-Hans) .reading-body,:lang(zh-Hans) .article-list-entry h2,:lang(zh-Hans) .article-header h1{font-family:var(--font),"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif}
+@media(max-width:650px){.reading-toolbar{margin-bottom:36px}.lang-switch{grid-template-columns:repeat(3,46px)}.lang-switch-pill{width:46px;transform:translateX(calc(var(--lang-index) * 46px))}}
+@media(prefers-reduced-motion:reduce){.lang-switch-pill{transition:none}.lang-fade{animation:none}}
