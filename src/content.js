@@ -18,7 +18,7 @@ export const profile = {
     { period: '05/2025 - 05/2026', role: 'Undergraduate Student Researcher', organization: 'University of Science, VNU-HCM', arrangement: 'Part-time', description: 'Advisor: Dr. Thanh Le (HCMUS).' },
   ],
   education: [
-    { period: '10/2022 - 10/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA: 9.06/10 (3.81/4.0).', 'Top 5% of the Information Technology CLC cohort by GPA.', 'Dean’s List for Academic Year 2024-2025; highest GPA among recipients.', 'Odon Vallet Scholarship 2026.'] },
+    { period: '10/2022 - 10/2026', institution: 'University of Science, VNU-HCM', degree: 'Bachelor’s degree in Information Technology', details: ['GPA 9.06/10 (3.81/4.0).', 'Top 5% of the Faculty of Information Technology by GPA.', 'Dean’s List for Academic Year 2024-2025, with the highest GPA on the list.', 'Odon Vallet Scholarship 2026.'] },
     { period: '2019 - 2022', institution: 'Nguyen Quang Dieu High School for the Gifted', degree: 'High School Diploma · Chemistry', details: ['Traditional Flag for Academic Excellence - sole recipient.', 'Third Prize, Vietnam National Chemistry Olympiad.'] },
   ],
   // Project titles link to their public repositories.
@@ -37,9 +37,10 @@ export const profile = {
     { date: '2026', title: 'Outstanding Thesis (10/10)', description: 'Outstanding thesis performance with a maximum score of 10/10.' },
     { title: 'Odon Vallet Scholarship', featured: true, issuer: 'Rencontres du Vietnam', url: 'https://www.fondationvallet.org/bourses/vietnam/', description: 'Awarded twice, at two stages of study.',
       rounds: [
-        { date: '2026', stage: 'University', description: 'Top-performing student in Information Technology; one of approximately 30 HCMUS recipients and the sole K22 awardee in the faculty.' },
-        { date: '08/2022', stage: 'High school', description: 'One of 4-5 recipients, selected for outstanding achievement in the natural sciences.' },
+        { date: '09/2026', stage: 'University', description: 'Awarded to outstanding students from Southern Vietnam and across the country. One of the top 30 awardees at HCMUS and one of 7 in the Faculty of Information Technology.' },
+        { date: '08/2022', stage: 'High school', description: 'One of 5 awardees at the school, recognized for the most outstanding academic achievement in the whole school.' },
       ] },
+    { date: '2026', title: 'First Place, MICCAI STSR Challenge', issuer: 'MICCAI 2026', description: 'Winning solution in the STSR Challenge at MICCAI 2026.' },
     { date: '01/2026', title: 'Dean’s List, Academic Year 2024-2025', featured: true, issuer: 'Faculty of Information Technology, University of Science, VNU-HCM', description: 'Highest GPA among recipients in the Faculty of Information Technology; recognizes the top 5% in academic performance.' },
     { date: '07/2025', title: 'First Place in the Retrieval Task, ALQAC 2025', issuer: 'JAIST · Program committee: JAIST, NII, VNU-HCMUS and VNU-UET', description: 'Winning legal-document retrieval system at the Automated Legal Question Answering Competition.' },
     { date: '05/2025', title: 'Academic Excellence Scholarship (Winter 2024 & Spring 2025)', issuer: 'University of Science, VNU-HCM', description: 'Awarded for a top-20 GPA in the academic year.' },
