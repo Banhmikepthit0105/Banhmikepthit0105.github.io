@@ -1,13 +1,14 @@
 // Add confirmed entries here. Drafts never appear in production.
 export const profile = {
+  // `hidden: true` keeps an entry here but leaves it off the site; delete the flag to restore it.
   news: [
-    { date: '2026', text: 'Entity-Constrained CBCT Retrieval has been accepted at MICCAIW 2026 (ODIN Workshop).' },
-    { date: '2026', text: 'G-MORDA, my first first-author paper, has been accepted at KES 2026.' },
     { date: '2026', text: 'Received the Odon Vallet Scholarship 2026.', highlight: true },
+    { date: '2026', text: 'G-MORDA, my first first-author paper, has been accepted at KES 2026.' },
+    { hidden: true, date: '2026', text: 'Entity-Constrained CBCT Retrieval has been accepted at MICCAIW 2026 (ODIN Workshop).' },
   ],
   // Title links open on hover/click; `image` is a real figure, `art` is the drawn fallback in PaperArt.jsx.
   publications: [
-    { topic: 'Medical Imaging & Retrieval', title: 'Entity-Constrained CBCT Retrieval for Low-Resource Dental Record Completion', authors: 'Nhi Ngoc-Yen Nguyen*, Thai Nguyen*, Kiet Huynh, Huy-Hieu Pham', venue: 'MICCAIW 2026 (ODIN Workshop).', distinction: 'First Place, MICCAI STSR Challenge', badge: 'MICCAIW 2026', art: 'cbct', image: '/assets/papers/cbct-retrieval.png' },
+    { hidden: true, topic: 'Medical Imaging & Retrieval', title: 'Entity-Constrained CBCT Retrieval for Low-Resource Dental Record Completion', authors: 'Nhi Ngoc-Yen Nguyen*, Thai Nguyen*, Kiet Huynh, Huy-Hieu Pham', venue: 'MICCAIW 2026 (ODIN Workshop).', distinction: 'First Place, MICCAI STSR Challenge', badge: 'MICCAIW 2026', art: 'cbct', image: '/assets/papers/cbct-retrieval.png' },
     { topic: 'Vision-Language Learning', title: 'G-MORDA: Graph-guided Compression with Locally Distinct Selection for Efficient VideoLLM Reasoning', url: 'https://github.com/Banhmikepthit0105/G-MORDA', authors: 'Thai Nguyen, Thanh Long Tran, Thanh Le', venue: 'KES 2026.', badge: 'KES 2026', art: 'gmorda', image: '/assets/papers/g-morda.png' },
     { topic: 'Vision-Language Learning', title: 'KWordinaryVQA: A Keyword-Driven Generative Visual Question Answering System for Culinary Exploration', url: 'https://aclanthology.org/2025.paclic-1.31/', authors: 'Huy Trieu, Thanh Thai Nguyen, Thanh Nghia Vo, Thinh Vuong Vo, Thanh Tu Dang, Tung Le', venue: 'PACLIC 2025.', badge: 'PACLIC 2025', art: 'kwordinaryvqa', image: '/assets/papers/kwordinaryvqa.png' },
     { topic: 'Information Retrieval & NLP', title: 'Flame Reavers@ALQAC 2025: Integrating Learned Rankers and LLM Reasoning in a Dynamic Hybrid Architecture for Legal Retrieval', url: 'https://kse2025.kse-conferences.org/wp-content/uploads/sites/10/2025/10/kse-2025-proceedings.pdf', authors: 'Huy Trieu, Dang-Phuong-Nam Doan, Anh-Kiet Nguyen, Thanh-Thai Nguyen, Thanh-Nghia Vo, Tung Le, Huy Tien Nguyen', venue: 'KSE 2025.', distinction: 'First Place, ALQAC 2025 Retrieval Task', badge: 'KSE 2025', art: 'flamereavers', image: '/assets/papers/flame-reavers.png' },
